@@ -11,7 +11,7 @@ RUN mkdir -p /www/letsencrypt \
     && ln -s /www/init.d /etc/init.d \
     && chmod +x /entrypoint.sh \
     && cd /home \
-    && yum yum makecache \
+    && yum makecache \
     && yum -y update \
     && yum -y install wget openssh-server \
     && echo 'Port 63322' > /etc/ssh/sshd_config \
