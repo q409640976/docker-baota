@@ -2,7 +2,8 @@ FROM centos:7
 USER root
 COPY set_default.py /set_default.py
 COPY entrypoint.sh /entrypoint.sh
-COPY CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
+#国内加速
+#COPY CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
 ENV USERPWD '123456789aaa'
 RUN mkdir -p /www/letsencrypt \
     && ln -s /www/letsencrypt /etc/letsencrypt \
