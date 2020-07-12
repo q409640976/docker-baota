@@ -1,14 +1,16 @@
+#!bin/bash
 #webshell
-#echo "Criando group docker com gid=$GID"
-#if [ -z $USERPWD ]
-#then
-#  echo "User default password in use"
-#else
-#  echo "Changing user password"
-#  echo $USERPWD | passwd root --stdin
-#fi
+echo "Criando group docker com gid=$GID"
+if [ -z $USERPWD ]
+then
+  echo "User default password in use"
+else
+  echo "Changing user password"
+  echo $USERPWD | passwd root --stdin
+fi
 
-#shellinaboxd --no-beep -t --service "/:root:root:/www:/bin/bash" &
+shellinaboxd --no-beep -t --service "/:root:root:/www:/bin/bash" &
+
 # Este comando sempre entra como user (nao tem login)
 # Este tem login
 #shellinaboxd --no-beep -t -s "/:LOGIN"
