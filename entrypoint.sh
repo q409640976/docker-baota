@@ -1,3 +1,19 @@
+#webshell
+echo "Criando group docker com gid=$GID"
+if [ -z $USERPWD ]
+then
+  echo "User default password in use"
+else
+  echo "Changing user password"
+  echo $USERPWD | passwd root --stdin
+fi
+# Este comando sempre entra como user (nao tem login)
+shellinaboxd --no-beep -t --service "/:root:root:/www:/bin/bash" &
+# Este tem login
+#shellinaboxd --no-beep -t -s "/:LOGIN"
+
+##baota
+
 if [ ! -f "/etc/ssh/ssh_host_rsa_key" ];then
     ssh-keygen -t rsa -N '' -q -f /etc/ssh/ssh_host_rsa_key
 fi
